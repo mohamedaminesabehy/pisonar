@@ -133,14 +133,14 @@ jobs:
           # Création du fichier de configuration dynamique
           cat > sonar-project-ci.properties << EOF
           # Configuration SonarQube pour CI/CD
-          sonar.projectKey=piweb
+          sonar.projectKey=mohamedaminesabehy_pisonar
           sonar.projectName=Rescuify - Smart Medical Emergency Application
           sonar.projectVersion=1.0.0
           
           # Configuration du serveur SonarQube
           sonar.host.url=$SONAR_HOST_URL
           sonar.token=$SONAR_TOKEN
-          sonar.organization=piweb
+          sonar.organization=mohamedaminesabehy
           
           # Sources et tests
           sonar.sources=back,front
