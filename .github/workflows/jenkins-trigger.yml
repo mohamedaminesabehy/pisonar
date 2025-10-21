@@ -23,18 +23,55 @@ jobs:
         echo "📋 Branche: ${{ github.ref_name }}"
         echo "📋 Auteur: ${{ github.actor }}"
         
-        # Déclencher Jenkins via webhook (à configurer dans Jenkins)
+        # Méthode 1: Déclencher Jenkins via webhook GitHub standard
         if [ "${{ secrets.JENKINS_WEBHOOK_URL }}" != "" ]; then
-          curl -X POST "${{ secrets.JENKINS_WEBHOOK_URL }}" \
+          echo "🔗 Déclenchement via webhook GitHub..."
+          curl -X POST "${{ secrets.JENKINS_WEBHOOK_URL }}/github-webhook/" \
+            -H "Content-Type: application/json" \
+            -H "X-GitHub-Event: push" \
+            -d '{
+              "ref": "${{ github.ref }}",
+              "after": "${{ github.sha }}",
+              "repository": {
+                "clone_url": "${{ github.repositoryUrl }}",
+                "full_name": "${{ github.repository }}"
+              },
+              "pusher": {
+                "name": "${{ github.actor }}"
+              }
+            }' || echo "⚠️ Webhook GitHub standard échoué"
+        fi
+        
+        # Méthode 2: Déclencher Jenkins via API directe (fallback)
+        if [ "${{ secrets.JENKINS_API_URL }}" != "" ] && [ "${{ secrets.JENKINS_API_TOKEN }}" != "" ]; then
+          echo "🔗 Déclenchement via API Jenkins..."
+          curl -X POST "${{ secrets.JENKINS_API_URL }}/job/${{ secrets.JENKINS_JOB_NAME }}/build" \
+            --user "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "parameter": [
+                {"name": "BRANCH", "value": "${{ github.ref_name }}"},
+                {"name": "COMMIT", "value": "${{ github.sha }}"}
+              ]
+            }' || echo "⚠️ API Jenkins non accessible"
+        fi
+        
+        # Méthode 3: Generic Webhook Trigger (si configuré)
+        if [ "${{ secrets.JENKINS_GENERIC_WEBHOOK_URL }}" != "" ]; then
+          echo "🔗 Déclenchement via Generic Webhook..."
+          curl -X POST "${{ secrets.JENKINS_GENERIC_WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
             -d '{
               "ref": "${{ github.ref }}",
-              "sha": "${{ github.sha }}",
-              "repository": "${{ github.repository }}",
-              "pusher": "${{ github.actor }}"
-            }' || echo "⚠️ Webhook Jenkins non configuré ou inaccessible"
-        else
-          echo "ℹ️ URL webhook Jenkins non configurée dans les secrets"
+              "branch": "${{ github.ref_name }}",
+              "commit": "${{ github.sha }}",
+              "repository": "${{ github.repository }}"
+            }' || echo "⚠️ Generic Webhook non accessible"
+        fi
+        
+        if [ "${{ secrets.JENKINS_WEBHOOK_URL }}" == "" ] && [ "${{ secrets.JENKINS_API_URL }}" == "" ] && [ "${{ secrets.JENKINS_GENERIC_WEBHOOK_URL }}" == "" ]; then
+          echo "ℹ️ Aucune URL Jenkins configurée dans les secrets"
+          echo "ℹ️ Configurez JENKINS_WEBHOOK_URL, JENKINS_API_URL ou JENKINS_GENERIC_WEBHOOK_URL"
         fi
         
         echo "✅ Déclenchement terminé"

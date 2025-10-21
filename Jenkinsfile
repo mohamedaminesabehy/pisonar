@@ -3,8 +3,12 @@ pipeline {
     
     // Déclencheurs automatiques pour GitHub
     triggers {
+        // Webhook GitHub (nécessite la configuration du plugin GitHub)
         githubPush()
-        pollSCM('H/5 * * * *') // Vérification toutes les 5 minutes comme fallback
+        // Polling SCM comme fallback - vérifie les changements toutes les 2 minutes
+        pollSCM('H/2 * * * *')
+        // Trigger périodique pour s'assurer que le pipeline fonctionne
+        cron('H 8 * * 1-5') // Tous les jours ouvrables à 8h
     }
     
     // Variables d'environnement
