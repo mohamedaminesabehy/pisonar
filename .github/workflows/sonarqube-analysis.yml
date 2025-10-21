@@ -41,10 +41,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: |
-            back/package-lock.json
-            front/package-lock.json
+          # Pas de cache automatique car package-lock.json n'existe pas
+          # Le cache sera géré manuellement par étape
 
       # 3. Configuration de l'environnement Java (requis pour SonarScanner)
       - name: ☕ Setup Java JDK
@@ -53,23 +51,49 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # 4. Installation des dépendances Backend
+      # 4. Cache des dépendances npm (Backend)
+      - name: 💾 Cache Backend Dependencies
+        uses: actions/cache@v4
+        with:
+          path: back/node_modules
+          key: ${{ runner.os }}-backend-npm-${{ hashFiles('back/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-backend-npm-
+
+      # 5. Installation des dépendances Backend
       - name: 📦 Install Backend Dependencies
         working-directory: ./back
         run: |
           echo "🔧 Installing backend dependencies..."
-          npm ci --prefer-offline --no-audit
-          echo "✅ Backend dependencies installed successfully"
+          if [ ! -d "node_modules" ]; then
+            npm install --prefer-offline --no-audit
+          else
+            echo "📦 Dependencies already cached, skipping installation"
+          fi
+          echo "✅ Backend dependencies ready"
 
-      # 5. Installation des dépendances Frontend
+      # 6. Cache des dépendances npm (Frontend)
+      - name: 💾 Cache Frontend Dependencies
+        uses: actions/cache@v4
+        with:
+          path: front/node_modules
+          key: ${{ runner.os }}-frontend-npm-${{ hashFiles('front/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-frontend-npm-
+
+      # 7. Installation des dépendances Frontend
       - name: 📦 Install Frontend Dependencies
         working-directory: ./front
         run: |
           echo "🔧 Installing frontend dependencies..."
-          npm ci --prefer-offline --no-audit
-          echo "✅ Frontend dependencies installed successfully"
+          if [ ! -d "node_modules" ]; then
+            npm install --prefer-offline --no-audit
+          else
+            echo "📦 Dependencies already cached, skipping installation"
+          fi
+          echo "✅ Frontend dependencies ready"
 
-      # 6. Build du projet Frontend (optionnel mais recommandé)
+      # 8. Build du projet Frontend (optionnel mais recommandé)
       - name: 🏗️ Build Frontend Project
         working-directory: ./front
         run: |
@@ -78,7 +102,7 @@ jobs:
           echo "✅ Frontend build completed successfully"
         continue-on-error: true
 
-      # 7. Installation et configuration de SonarScanner
+      # 9. Installation et configuration de SonarScanner
       - name: 🔍 Setup SonarScanner CLI
         run: |
           echo "📥 Downloading and installing SonarScanner..."
@@ -89,7 +113,7 @@ jobs:
           echo "✅ SonarScanner installed successfully"
           sonar-scanner --version
 
-      # 8. Validation des secrets requis
+      # 10. Validation des secrets requis
       - name: 🔐 Validate Required Secrets
         run: |
           echo "🔍 Validating required environment variables..."
@@ -103,7 +127,7 @@ jobs:
           fi
           echo "✅ All required secrets are properly configured"
 
-      # 9. Préparation des paramètres SonarQube
+      # 11. Préparation des paramètres SonarQube
       - name: 📋 Prepare SonarQube Parameters
         run: |
           echo "📝 Preparing SonarQube analysis parameters..."
@@ -145,7 +169,7 @@ jobs:
           
           echo "✅ SonarQube configuration prepared"
 
-      # 10. Exécution de l'analyse SonarQube
+      # 12. Exécution de l'analyse SonarQube
       - name: 🔍 Run SonarQube Analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -175,7 +199,7 @@ jobs:
           
           echo "✅ SonarQube analysis completed successfully"
 
-      # 11. Vérification du Quality Gate
+      # 13. Vérification du Quality Gate
       - name: 🎯 Check Quality Gate Status
         run: |
           echo "🔍 Checking Quality Gate status..."
@@ -186,7 +210,7 @@ jobs:
           # Note: Le statut du Quality Gate est automatiquement vérifié par sonar.qualitygate.wait=true
           echo "✅ Quality Gate verification completed"
 
-      # 12. Nettoyage des fichiers temporaires
+      # 14. Nettoyage des fichiers temporaires
       - name: 🧹 Cleanup Temporary Files
         if: always()
         run: |
