@@ -142,6 +142,7 @@ jobs:
           # Configuration du serveur SonarQube
           sonar.host.url=$SONAR_HOST_URL
           sonar.token=$SONAR_TOKEN
+          sonar.organization=piweb
           
           # Sources et tests
           sonar.sources=back,front
