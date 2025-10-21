@@ -1,0 +1,109 @@
+:root {
+  --body_background: #ffffff;
+  --body_color: #000000;
+  --link_color: #0066cc;
+  --header-bg: #f8f9fa;
+  --border-color: #dee2e6;
+  --dark-bg: #212529;
+  --dark-border: #495057;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --body_background: #212529;
+  --body_color: #ffffff;
+  --link_color: #66b3ff;
+  --header-bg: #343a40;
+  --border-color: #495057;
+  --text-color: #ffffff;
+}
+
+[data-contrast="high"] {
+  --body_background: #000000;
+  --body_color: #ffffff;
+  --link_color: #ffff00;
+  --header-bg: #000000;
+  --border-color: #ffffff;
+  --text-color: #ffffff;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--body_background);
+  color: var(--body_color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  min-height: 60px;
+}
+
+.app-main {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--body_background);
+  color: var(--body_color);
+}
+
+.app-footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--header-bg);
+  border-top: 1px solid var(--border-color);
+  color: var(--body_color);
+}
+
+/* Theme transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark theme specific styles */
+[data-theme="dark"] .app-header,
+[data-theme="dark"] .app-footer {
+  background-color: var(--dark-bg);
+  border-color: var(--dark-border);
+}
+
+/* High contrast mode */
+[data-contrast="high"] .app-header,
+[data-contrast="high"] .app-footer {
+  border: 2px solid var(--text-color);
+}
+
+/* Focus styles for accessibility */
+:focus {
+  outline: 2px solid var(--link_color);
+  outline-offset: 2px;
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--link_color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Add margin to the dark mode toggle for spacing */
+.dark_mode {
+  margin-left: 1rem;
+}

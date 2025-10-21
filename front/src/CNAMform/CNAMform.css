@@ -1,0 +1,276 @@
+/* CNAM Form Styles */
+/* --- before: .cnam-form-container { max-width: 600px; } --- */
+/* after: take up almost full width but cap at 1200px */
+.cnam-form-container {
+  width: 90%;              /* use 90% of the viewport */
+  max-width: 1200px;       /* but don’t exceed 1,200px */
+  margin: 2rem auto;       /* center it horizontally */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 89, 138, 0.08);
+  padding: 2rem;
+}
+
+/* increase the title size so it really pops */
+.cnam-form-container h2 {
+  font-size: 2.25rem;      /* was inherited or smaller */
+  color: #0F598A;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Optionally bump up the table wrapper to fill the card */
+.cnam-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+
+.cnam-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cnam-form input[type="text"],
+.cnam-form input[type="number"],
+.cnam-form input[type="date"] {
+  padding: 0.7rem 1rem;
+  border: 1px solid #c3d6e6;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f7fbfd;
+  color: #222;
+  transition: border 0.2s;
+}
+
+.cnam-form input:focus {
+  border: 1.5px solid #0F598A;
+  outline: none;
+}
+
+.cnam-form button[type="submit"] {
+  background: #0F598A;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1.2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cnam-form button[type="submit"]:hover {
+  background: #197bbd;
+}
+
+.cnam-list {
+  margin-top: 1.5rem;
+}
+
+.cnam-list h3 {
+  color: #0F598A;
+  margin-bottom: 1rem;
+}
+
+.cnam-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7fbfd;
+  border: 1px solid #e3eefa;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+}
+
+.cnam-item span {
+  color: #222;
+}
+
+.cnam-item button {
+  background: #fff;
+  color: #0F598A;
+  border: 1px solid #0F598A;
+  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  margin-left: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cnam-item button:hover {
+  background: #0F598A;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .cnam-form-container {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .cnam-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Add CNAM button */
+.add-cnam-btn {
+  background: #0F598A;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(15,89,138,0.08);
+}
+.add-cnam-btn:hover {
+  background: #197bbd;
+}
+
+/* Modal/card form */
+.cnam-form-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(15,89,138,0.10);
+  padding: 2rem 2rem 1rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.cnam-form-modal input {
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  background: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+.cnam-form-modal input:focus {
+  outline: 2px solid #0F598A;
+  background: #fff;
+}
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+.cnam-form-modal button[type="submit"] {
+  background: #0F598A;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cnam-form-modal button[type="submit"]:hover {
+  background: #197bbd;
+}
+.cancel-btn {
+  background: #e5e7eb;
+  color: #0F598A;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cancel-btn:hover {
+  background: #cbd5e1;
+}
+
+/* Table styles */
+
+.cnam-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(15,89,138,0.08);
+  overflow: hidden;
+}
+.cnam-table th, .cnam-table td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+}
+.cnam-table th {
+  background: #e0eefa;
+  color: #0F598A;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-bottom: 2px solid #dbeafe;
+}
+.cnam-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+.cnam-table tr:hover {
+  background: #e0eefa;
+}
+.cnam-table td {
+  font-size: 1rem;
+  color: #23272f;
+}
+
+/* Action buttons */
+.edit-btn, .delete-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.edit-btn {
+  background: #e0eefa;
+  color: #0F598A;
+}
+.edit-btn:hover {
+  background: #b6d6f6;
+}
+.delete-btn {
+  background: #ef3f3f;
+  color: #fff;
+}
+.delete-btn:hover {
+  background: #c81e1e;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .cnam-table th, .cnam-table td {
+    padding: 0.7rem 0.5rem;
+    font-size: 0.95rem;
+  }
+  .cnam-form-modal {
+    max-width: 600px;        /* instead of 400px */
+    width: 100%;
+    padding: 2rem;
+    /* rest unchanged */
+  }
+  
+}
+
+/* Remove old list styles if present */
+.cnam-list, .cnam-item { display: none !important; }

@@ -1,0 +1,256 @@
+/* Container général */
+.prescription-container {
+  padding: 24px;
+  background-color: #f2f4f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Conteneur principal de la liste */
+.prescription-list {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre */
+.prescription-list > h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Barre de recherche */
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.search-bar:focus {
+  border-color: #4361ee;
+}
+
+/* Conteneur de table */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Style de la table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background-color: #fff;
+}
+th,
+td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: middle;
+}
+th {
+  font-weight: 600;
+  color: #495057;
+  background-color: #f8f9fa;
+}
+
+/* Statuts */
+.status-pending {
+  background-color: #ffca2c;
+  color: #212529;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.status-failed {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.status-delivered {
+  background-color: #28a745;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Boutons d'action */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* On ajoute une classe .same-size-btn pour uniformiser la taille */
+.same-size-btn {
+  min-width: 95px;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Styles communs aux boutons */
+.action-buttons button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.preview-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+.preview-btn:hover {
+  background-color: #0056b3;
+}
+.update-btn {
+  background-color: #17a2b8;
+  color: #fff;
+}
+.update-btn:hover {
+  background-color: #138496;
+}
+.delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.pagination button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4361ee;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.pagination button:hover {
+  background-color: #3244c2;
+}
+.pagination button:disabled {
+  background-color: #bcbcbc;
+  cursor: not-allowed;
+}
+.pagination span {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Styles pour le formulaire d'update via SweetAlert */
+.swal-update-container {
+  text-align: left;
+}
+.swal-update-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Résultats de recherche des médicaments */
+.med-search-results {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 5px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+/* Conteneur des lignes de médicaments */
+.swal-med-container {
+  margin-top: 10px;
+}
+
+/* Ligne de médicament */
+.swal-med-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* Label inline */
+.label-inline {
+  margin-right: 8px;
+  font-weight: 500;
+}
+
+/* Champs SweetAlert */
+.swal2-input {
+  margin: 4px 8px 4px 0;
+}
+/* Champs plus petits */
+.short-input {
+  width: 60px !important;
+}
+.medium-input {
+  width: 120px !important;
+}
+
+/* Bouton remove pour médicament */
+.remove-med-btn {
+  background-color: #f56565;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-left: 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.remove-med-btn:hover {
+  background-color: #c53030;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .prescription-list {
+    width: 95%;
+    padding: 20px;
+  }
+  .search-bar {
+    max-width: 100%;
+  }
+  .action-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

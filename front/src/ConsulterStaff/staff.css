@@ -1,0 +1,486 @@
+.staff-container {
+    padding: 24px;
+    background-color: #f5f7fb;
+    min-height: 100vh;
+  }
+  
+  /* Table Styles */
+  .recent-doctors {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .section-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+  
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  th {
+    font-weight: 600;
+    color: #666;
+    background-color: #f8f9fa;
+  }
+  
+  .staff-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .status.active {
+    background-color: #e1f7e1;
+    color: #2a9d8f;
+  }
+  
+  .status.inactive {
+    background-color: #ffe3e3;
+    color: #ff6b6b;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .action-buttons button {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+  }
+  
+  .edit-btn {
+    background-color: #4361ee;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #ef476f;
+    color: white;
+  }
+  
+  /* Pagination Styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  
+  .pagination button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4361ee;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination span {
+    color: #666;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .table-container {
+      margin: 0 -24px;
+    }
+  
+    table {
+      font-size: 0.75rem;
+    }
+  
+    th,
+    td {
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .action-buttons {
+      flex-direction: column;
+    }
+  }
+  /* Role Selection Buttons */
+.role-selection {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .role-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+    color: #333;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .role-btn.active {
+    background-color: #4361ee;
+    color: white;
+  }
+  
+  .role-btn:hover {
+    background-color: #4361ee;
+    color: white;
+  }
+  
+  /* Icon next to the title */
+  .section-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+  }
+  
+  .section-header h2 svg {
+    font-size: 1.5rem;
+    color: #4361ee;
+  }
+  .loading-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin: 20px 0;
+  }
+  
+  .error-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #d9534f;
+    margin: 20px 0;
+  }
+  
+  .staff-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+   /* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Increased to ensure it’s above all content */
+}
+
+/* Popup Container (for Delete Confirmation) */
+.popup-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  z-index: 2010; /* Higher than overlay */
+}
+
+.popup-container h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.popup-container p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* Popup Buttons */
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.confirm-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #c82333;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Success Message */
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Details Popup */
+.details-popup {
+  width: 695px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 25px;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  animation: slideIn 0.3s ease-out;
+  z-index: 2010; /* Higher than overlay */
+}
+
+/* Animation for popup entrance */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.staff-details {
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.staff-photo-large {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: block;
+  border: 3px solid #ceac24;
+  grid-column: 1 / -1;
+  transition: transform 0.3s ease;
+}
+
+.staff-photo-large:hover {
+  transform: scale(1.05);
+}
+
+.staff-details p {
+  margin: 0;
+  padding: 10px;
+  font-size: 15px;
+  color: #333;
+  background: #f4f4f4;
+  border-radius: 6px;
+  border-left: 4px solid #ceac24;
+  transition: background 0.2s ease;
+}
+
+.staff-details p:hover {
+  background: #ececec;
+}
+
+.staff-details strong {
+  color: #244068;
+  font-weight: 600;
+}
+
+.details-popup h3 {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #244068;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.close-btn {
+  background-color: #244068;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  grid-column: 1 / -1;
+  margin-top: 20px;
+}
+
+.close-btn:hover {
+  background-color: #ceac24;
+  transform: translateY(-2px);
+}
+
+.close-btn:active {
+  transform: translateY(0);
+}
+
+/* Adjust action buttons */
+.details-btn {
+  background-color: #17a2b8;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.details-btn:hover {
+  background-color: #138496;
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+/* Footer (assuming this is your footer style) */
+footer {
+  
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  color: #333;
+  z-index: 10; /* Lower than popup-overlay */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .details-popup {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .staff-details {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .staff-photo-large {
+    width: 100px;
+    height: 100px;
+  }
+
+  .staff-details p {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .close-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .staff-details {
+    grid-template-columns: 1fr;
+  }
+
+  .details-btn,
+  .delete-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}

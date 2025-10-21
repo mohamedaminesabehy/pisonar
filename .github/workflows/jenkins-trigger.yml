@@ -1,0 +1,54 @@
+name: Trigger Jenkins Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  trigger-jenkins:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Trigger Jenkins Pipeline
+      run: |
+        echo "🚀 Déclenchement du pipeline Jenkins..."
+        
+        # Informations sur le commit
+        echo "📋 Commit: ${{ github.sha }}"
+        echo "📋 Branche: ${{ github.ref_name }}"
+        echo "📋 Auteur: ${{ github.actor }}"
+        
+        # Déclencher Jenkins via webhook (à configurer dans Jenkins)
+        if [ "${{ secrets.JENKINS_WEBHOOK_URL }}" != "" ]; then
+          curl -X POST "${{ secrets.JENKINS_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "ref": "${{ github.ref }}",
+              "sha": "${{ github.sha }}",
+              "repository": "${{ github.repository }}",
+              "pusher": "${{ github.actor }}"
+            }' || echo "⚠️ Webhook Jenkins non configuré ou inaccessible"
+        else
+          echo "ℹ️ URL webhook Jenkins non configurée dans les secrets"
+        fi
+        
+        echo "✅ Déclenchement terminé"
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: trigger-jenkins
+    if: always()
+    
+    steps:
+    - name: Notify Status
+      run: |
+        if [ "${{ needs.trigger-jenkins.result }}" == "success" ]; then
+          echo "✅ Pipeline Jenkins déclenché avec succès"
+        else
+          echo "❌ Échec du déclenchement du pipeline Jenkins"
+        fi

@@ -1,0 +1,128 @@
+version: '3.8'
+
+services:
+  # Jenkins avec plugins pré-installés
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins-sonar
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./jenkins-plugins.txt:/usr/share/jenkins/ref/plugins.txt
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+      - JENKINS_ADMIN_ID=admin
+      - JENKINS_ADMIN_PASSWORD=admin123
+    networks:
+      - sonar-jenkins-network
+    depends_on:
+      - sonarqube
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/login"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # SonarQube
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube-server
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_JDBC_URL=jdbc:postgresql://postgres:5432/sonar
+      - SONAR_JDBC_USERNAME=sonar
+      - SONAR_JDBC_PASSWORD=sonar123
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+    networks:
+      - sonar-jenkins-network
+    depends_on:
+      - postgres
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/api/system/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Base de données PostgreSQL pour SonarQube
+  postgres:
+    image: postgres:13
+    container_name: postgres-sonar
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar123
+      - POSTGRES_DB=sonar
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - sonar-jenkins-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sonar"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Agent Jenkins avec Node.js pour les builds
+  jenkins-agent:
+    image: jenkins/inbound-agent:latest
+    container_name: jenkins-node-agent
+    restart: unless-stopped
+    environment:
+      - JENKINS_URL=http://jenkins:8080
+      - JENKINS_SECRET=${JENKINS_AGENT_SECRET}
+      - JENKINS_AGENT_NAME=node-agent
+      - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
+    volumes:
+      - jenkins_agent_workdir:/home/jenkins/agent
+    networks:
+      - sonar-jenkins-network
+    depends_on:
+      - jenkins
+
+  # Nginx reverse proxy (optionnel)
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    networks:
+      - sonar-jenkins-network
+    depends_on:
+      - jenkins
+      - sonarqube
+
+volumes:
+  jenkins_home:
+    driver: local
+  jenkins_agent_workdir:
+    driver: local
+  sonarqube_data:
+    driver: local
+  sonarqube_extensions:
+    driver: local
+  sonarqube_logs:
+    driver: local
+  postgres_data:
+    driver: local
+
+networks:
+  sonar-jenkins-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

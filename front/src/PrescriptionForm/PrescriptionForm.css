@@ -1,0 +1,143 @@
+/* Conteneur principal */
+.prescription-container {
+    padding: 24px;
+    background-color: #f5f7fb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Formulaire */
+.form-section {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Alignement des labels et inputs */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Barre de recherche */
+.search-group {
+    position: relative;
+}
+
+.search-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Liste déroulante des médicaments */
+.medication-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.medication-item {
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.medication-item:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* Médicaments sélectionnés */
+.selected-medications {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.medication-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.medication-inputs label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.medication-inputs input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Bouton de suppression */
+.remove-medication {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Bouton principal */
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Bouton CNAM */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox input {
+    width: 18px;
+    height: 18px;
+}

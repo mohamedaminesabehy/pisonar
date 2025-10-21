@@ -1,0 +1,327 @@
+[
+  {
+    "title": "Morning Shift \u2013 2025-05-19",
+    "start": "2025-05-19T08:00:00",
+    "end": "2025-05-19T16:00:00",
+    "assignedDoctors": [
+      "67cf4b3435b8ba51b0af1282",
+      "67f43cf889b1fc291c612c53"
+    ],
+    "assignedNurses": [
+      "67cf4b8235b8ba51b0af1285"
+    ],
+    "shift": "Morning",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Evening Shift \u2013 2025-05-19",
+    "start": "2025-05-19T16:00:00",
+    "end": "2025-05-20T00:00:00",
+    "assignedDoctors": [
+      "67f4546589b1fc291c613160"
+    ],
+    "assignedNurses": [
+      "67f4402f89b1fc291c612c97",
+      "67ff7b8b42fc75d02c937309",
+      "67ff8a6715b50eb09c14b762"
+    ],
+    "shift": "Evening",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Night Shift \u2013 2025-05-19",
+    "start": "2025-05-19T00:00:00",
+    "end": "2025-05-19T08:00:00",
+    "assignedDoctors": [
+      "67f43ff589b1fc291c612c8b",
+      "67ff7abe42fc75d02c9372ed"
+    ],
+    "assignedNurses": [
+      "67f4401489b1fc291c612c91"
+    ],
+    "shift": "Night",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Morning Shift \u2013 2025-05-20",
+    "start": "2025-05-20T08:00:00",
+    "end": "2025-05-20T16:00:00",
+    "assignedDoctors": [
+      "67f4546589b1fc291c613160"
+    ],
+    "assignedNurses": [
+      "67cf4b8235b8ba51b0af1285"
+    ],
+    "shift": "Morning",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Evening Shift \u2013 2025-05-20",
+    "start": "2025-05-20T16:00:00",
+    "end": "2025-05-21T00:00:00",
+    "assignedDoctors": [
+      "67f43ff589b1fc291c612c8b",
+      "67ff7abe42fc75d02c9372ed"
+    ],
+    "assignedNurses": [
+      "67f4401489b1fc291c612c91"
+    ],
+    "shift": "Evening",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Night Shift \u2013 2025-05-20",
+    "start": "2025-05-20T00:00:00",
+    "end": "2025-05-20T08:00:00",
+    "assignedDoctors": [
+      "67cf4b3435b8ba51b0af1282",
+      "67f43cf889b1fc291c612c53",
+      "67f4546589b1fc291c613160"
+    ],
+    "assignedNurses": [
+      "67f4402f89b1fc291c612c97",
+      "67ff7b8b42fc75d02c937309",
+      "67ff8a6715b50eb09c14b762"
+    ],
+    "shift": "Night",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Morning Shift \u2013 2025-05-21",
+    "start": "2025-05-21T08:00:00",
+    "end": "2025-05-21T16:00:00",
+    "assignedDoctors": [
+      "67f43cf889b1fc291c612c53",
+      "67ff7abe42fc75d02c9372ed"
+    ],
+    "assignedNurses": [
+      "67cf4b8235b8ba51b0af1285",
+      "67ff8a6715b50eb09c14b762"
+    ],
+    "shift": "Morning",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Evening Shift \u2013 2025-05-21",
+    "start": "2025-05-21T16:00:00",
+    "end": "2025-05-22T00:00:00",
+    "assignedDoctors": [
+      "67f43ff589b1fc291c612c8b",
+      "67f4546589b1fc291c613160"
+    ],
+    "assignedNurses": [
+      "67f4402f89b1fc291c612c97",
+      "67ff7b8b42fc75d02c937309"
+    ],
+    "shift": "Evening",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Night Shift \u2013 2025-05-21",
+    "start": "2025-05-21T00:00:00",
+    "end": "2025-05-21T08:00:00",
+    "assignedDoctors": [
+      "67cf4b3435b8ba51b0af1282"
+    ],
+    "assignedNurses": [
+      "67f4401489b1fc291c612c91"
+    ],
+    "shift": "Night",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Morning Shift \u2013 2025-05-22",
+    "start": "2025-05-22T08:00:00",
+    "end": "2025-05-22T16:00:00",
+    "assignedDoctors": [
+      "67f43cf889b1fc291c612c53"
+    ],
+    "assignedNurses": [
+      "67f4401489b1fc291c612c91",
+      "67ff8a6715b50eb09c14b762"
+    ],
+    "shift": "Morning",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Evening Shift \u2013 2025-05-22",
+    "start": "2025-05-22T16:00:00",
+    "end": "2025-05-23T00:00:00",
+    "assignedDoctors": [
+      "67cf4b3435b8ba51b0af1282",
+      "67f43ff589b1fc291c612c8b"
+    ],
+    "assignedNurses": [
+      "67f4402f89b1fc291c612c97",
+      "67ff7b8b42fc75d02c937309"
+    ],
+    "shift": "Evening",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Night Shift \u2013 2025-05-22",
+    "start": "2025-05-22T00:00:00",
+    "end": "2025-05-22T08:00:00",
+    "assignedDoctors": [
+      "67f4546589b1fc291c613160",
+      "67ff7abe42fc75d02c9372ed"
+    ],
+    "assignedNurses": [
+      "67cf4b8235b8ba51b0af1285"
+    ],
+    "shift": "Night",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Morning Shift \u2013 2025-05-23",
+    "start": "2025-05-23T08:00:00",
+    "end": "2025-05-23T16:00:00",
+    "assignedDoctors": [
+      "67f4546589b1fc291c613160"
+    ],
+    "assignedNurses": [
+      "67cf4b8235b8ba51b0af1285",
+      "67ff7b8b42fc75d02c937309",
+      "67ff8a6715b50eb09c14b762"
+    ],
+    "shift": "Morning",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Evening Shift \u2013 2025-05-23",
+    "start": "2025-05-23T16:00:00",
+    "end": "2025-05-24T00:00:00",
+    "assignedDoctors": [
+      "67cf4b3435b8ba51b0af1282"
+    ],
+    "assignedNurses": [
+      "67f4402f89b1fc291c612c97"
+    ],
+    "shift": "Evening",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Night Shift \u2013 2025-05-23",
+    "start": "2025-05-23T00:00:00",
+    "end": "2025-05-23T08:00:00",
+    "assignedDoctors": [
+      "67f43cf889b1fc291c612c53",
+      "67f43ff589b1fc291c612c8b",
+      "67f4546589b1fc291c613160",
+      "67ff7abe42fc75d02c9372ed"
+    ],
+    "assignedNurses": [
+      "67f4401489b1fc291c612c91"
+    ],
+    "shift": "Night",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Morning Shift \u2013 2025-05-24",
+    "start": "2025-05-24T08:00:00",
+    "end": "2025-05-24T16:00:00",
+    "assignedDoctors": [
+      "67cf4b3435b8ba51b0af1282",
+      "67f4546589b1fc291c613160"
+    ],
+    "assignedNurses": [
+      "67f4402f89b1fc291c612c97"
+    ],
+    "shift": "Morning",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Evening Shift \u2013 2025-05-24",
+    "start": "2025-05-24T16:00:00",
+    "end": "2025-05-25T00:00:00",
+    "assignedDoctors": [
+      "67f43cf889b1fc291c612c53",
+      "67f43ff589b1fc291c612c8b",
+      "67ff7abe42fc75d02c9372ed"
+    ],
+    "assignedNurses": [
+      "67f4401489b1fc291c612c91"
+    ],
+    "shift": "Evening",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Night Shift \u2013 2025-05-24",
+    "start": "2025-05-24T00:00:00",
+    "end": "2025-05-24T08:00:00",
+    "assignedDoctors": [
+      "67f43ff589b1fc291c612c8b"
+    ],
+    "assignedNurses": [
+      "67cf4b8235b8ba51b0af1285",
+      "67ff7b8b42fc75d02c937309",
+      "67ff8a6715b50eb09c14b762"
+    ],
+    "shift": "Night",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Morning Shift \u2013 2025-05-25",
+    "start": "2025-05-25T08:00:00",
+    "end": "2025-05-25T16:00:00",
+    "assignedDoctors": [
+      "67f4546589b1fc291c613160",
+      "67ff7abe42fc75d02c9372ed"
+    ],
+    "assignedNurses": [
+      "67ff7b8b42fc75d02c937309"
+    ],
+    "shift": "Morning",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Evening Shift \u2013 2025-05-25",
+    "start": "2025-05-25T16:00:00",
+    "end": "2025-05-26T00:00:00",
+    "assignedDoctors": [
+      "67f43cf889b1fc291c612c53",
+      "67f43ff589b1fc291c612c8b"
+    ],
+    "assignedNurses": [
+      "67cf4b8235b8ba51b0af1285",
+      "67f4402f89b1fc291c612c97"
+    ],
+    "shift": "Evening",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  },
+  {
+    "title": "Night Shift \u2013 2025-05-25",
+    "start": "2025-05-25T00:00:00",
+    "end": "2025-05-25T08:00:00",
+    "assignedDoctors": [
+      "67cf4b3435b8ba51b0af1282"
+    ],
+    "assignedNurses": [
+      "67f4401489b1fc291c612c91",
+      "67ff8a6715b50eb09c14b762"
+    ],
+    "shift": "Night",
+    "description": "Auto-scheduled weekly shift",
+    "createdBy": "system"
+  }
+]

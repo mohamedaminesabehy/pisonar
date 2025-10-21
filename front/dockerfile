@@ -1,0 +1,19 @@
+# use Node 20 to satisfy react-router>=7.6.0
+FROM node:20
+
+WORKDIR /app
+
+# copy just package.json + lockfile
+COPY package*.json ./
+
+# install exactly what package-lock says
+RUN npm ci
+
+# bring in the rest of your source
+COPY . .
+
+# expose Vite’s default port
+EXPOSE 5173
+
+# run in dev mode, binding to 0.0.0.0 so it’s reachable from outside
+CMD ["npm", "run", "dev"]

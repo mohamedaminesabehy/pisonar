@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="deef205a-21f6-4ec1-9bd1-272986a8d231" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2vAzKzsUXjVNNT2ivziw9fkG7mV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;yassineJawadiBranch&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yassine Jawadi/Desktop/pidev/pidevweb&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="deef205a-21f6-4ec1-9bd1-272986a8d231" name="Changes" comment="" />
+      <created>1743602608527</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743602608527</updated>
+      <workItem from="1743602611519" duration="79000" />
+      <workItem from="1743603064484" duration="127000" />
+      <workItem from="1743603205182" duration="12000" />
+      <workItem from="1743724841761" duration="180000" />
+      <workItem from="1743739768327" duration="1649000" />
+      <workItem from="1743835125590" duration="963000" />
+      <workItem from="1743905164295" duration="4000" />
+      <workItem from="1743911840310" duration="247000" />
+      <workItem from="1743939970691" duration="648000" />
+      <workItem from="1743977005339" duration="88000" />
+    </task>
+    <task id="LOCAL-00001" summary="updating model + adding new middleware + fxing the outes">
+      <option name="closed" value="true" />
+      <created>1743724960696</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743724960696</updated>
+    </task>
+    <task id="LOCAL-00002" summary="updating model + adding new middleware + fxing the outes : &#10;&#10;- Implemented detailed view popup for resources with improved design and layout&#10;- Refactored MaterielResources.jsx for cleaner logic and UI consistency&#10;- Fixed issues with PATCH method for updating resources via modal&#10;- Reverted to stable view-only details popup with clean layout&#10;- Built Add Resource feature with form validation, error handling, and responsive styling&#10;- Added route to App.jsx for /add-resource with protected access&#10;- Organized AddResource into its own component structure and styling&#10;- Ensured alignment with system design (matching Staff and Doctor UI)&#10;- General UI/UX enhancements across resource management views">
+      <option name="closed" value="true" />
+      <created>1743740205558</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743740205558</updated>
+    </task>
+    <task id="LOCAL-00003" summary="admine dashboard done for materiel resources : &#10;-fixing the update function &#10;-fixing the design &#10;-fixing the attirubts &#10;-changing the default value if MaintenanceDate">
+      <option name="closed" value="true" />
+      <created>1743835409153</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743835409153</updated>
+    </task>
+    <task id="LOCAL-00004" summary="adding assign ressource to patient function :&#10;-implementing the function in the front&#10;-updating the style of the function v1">
+      <option name="closed" value="true" />
+      <created>1743912018370</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743912018370</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="updating model + adding new middleware + fxing the outes" />
+    <MESSAGE value="updating model + adding new middleware + fxing the outes : &#10;&#10;- Implemented detailed view popup for resources with improved design and layout&#10;- Refactored MaterielResources.jsx for cleaner logic and UI consistency&#10;- Fixed issues with PATCH method for updating resources via modal&#10;- Reverted to stable view-only details popup with clean layout&#10;- Built Add Resource feature with form validation, error handling, and responsive styling&#10;- Added route to App.jsx for /add-resource with protected access&#10;- Organized AddResource into its own component structure and styling&#10;- Ensured alignment with system design (matching Staff and Doctor UI)&#10;- General UI/UX enhancements across resource management views" />
+    <MESSAGE value="admine dashboard done for materiel resources : &#10;-fixing the update function &#10;-fixing the design &#10;-fixing the attirubts &#10;-changing the default value if MaintenanceDate" />
+    <MESSAGE value="admin dashboard done for materiel resources : &#10;-fixing the update function &#10;-fixing the design &#10;-fixing the attirubts &#10;-changing the default value if MaintenanceDate" />
+    <MESSAGE value="adding assign ressource to patient function :&#10;-implementing the function in the front&#10;-updating the style of the function v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding assign ressource to patient function :&#10;-implementing the function in the front&#10;-updating the style of the function v1" />
+  </component>
+</project>

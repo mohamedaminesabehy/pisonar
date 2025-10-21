@@ -1,0 +1,64 @@
+services:
+  api-service:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    image: piweb-api:latest
+    container_name: piweb-api
+    environment:
+      SPRING_DATA_MONGODB_URI: "mongodb+srv://mohamedmaamar:I6Yyrxr8KVWJ2uNY@ecom.spbtj0n.mongodb.net/piwebDB?retryWrites=true&w=majority"
+      MONGODB_NAME: piwebDB
+    ports:
+      - "3006:3006"
+    networks:
+      - piweb-net
+
+  front-service:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    image: piweb-frontend:latest
+    container_name: piweb-frontend
+    # Si votre front a besoin de pointer vers l'API, décommentez/lisez la variable ci-dessous et ajustez
+    # environment:
+    #   VITE_API_URL: "http://api-service:9090"
+    ports:
+      - "5173:5173"
+    networks:
+      - piweb-net
+    depends_on:
+      - api-service
+
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube-piweb
+    ports:
+      - "9000:9000"
+    environment:
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+      SONAR_JDBC_URL: "jdbc:postgresql://sonar-db:5432/sonar"
+      SONAR_JDBC_USERNAME: "sonar"
+      SONAR_JDBC_PASSWORD: "sonar"
+    depends_on:
+      - sonar-db
+    networks:
+      - piweb-net
+
+  sonar-db:
+    image: postgres:13
+    container_name: sonar-db-piweb
+    environment:
+      POSTGRES_USER: "sonar"
+      POSTGRES_PASSWORD: "sonar"
+      POSTGRES_DB: "sonar"
+    volumes:
+      - sonar-db-data:/var/lib/postgresql/data
+    networks:
+      - piweb-net
+
+networks:
+  piweb-net:
+    driver: bridge
+
+volumes:
+  sonar-db-data:

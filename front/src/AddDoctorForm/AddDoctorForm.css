@@ -1,0 +1,176 @@
+/* AddDoctorForm.css */
+
+.medical-staff-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  color: #244068;
+  margin-bottom: 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.form-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.staff-type-selection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.staff-type-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.staff-type-btn.active {
+  background-color: #4178c7;
+  color: #fff;
+}
+
+.staff-type-btn .btn-icon {
+  margin-right: 10px;
+}
+
+.add-staff-form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.staff-icon {
+  width: 161px;
+  height: 212px;
+  border-radius: 37%;
+  margin-bottom: 10px;
+}
+
+.form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(50% - 10px);
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #244068;
+}
+
+.form-group label svg {
+  margin-right: 10px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group.error input,
+.form-group.error select {
+  border-color: #ff0000;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.image-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 13px;
+  background-color: #244068;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+.h2{
+  color :#244068
+}
+.form-group.error input,
+.form-group.error select {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.success-modal {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+}
+.text{
+  color: #244068;
+}
